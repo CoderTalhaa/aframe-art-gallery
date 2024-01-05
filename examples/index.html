@@ -191,6 +191,11 @@
 
         <a-asset-item id="info" src="./assets/models/info.glb"></a-asset-item>
 
+        <a-asset-item id="discord" src="./assets/models/discord.glb"></a-asset-item>
+        <a-asset-item id="github" src="./assets/models/github.glb"></a-asset-item>
+        <a-asset-item id="linkedin" src="./assets/models/linkedin.glb"></a-asset-item>
+        <a-asset-item id="twitter" src="./assets/models/twitter.glb"></a-asset-item>
+
         <a-asset-item id="rubic" src="./assets/rubic.ttf"></a-asset-item>
 
 
@@ -295,8 +300,6 @@
       font="#rubic"
       ></a-troika-text>
 
-
-    
     <a-troika-text 
     value="VIEW MY PROJECTS"
     material="shader: standard; metalness: 0.8;"
@@ -309,6 +312,49 @@
     outline-blur="0.1" 
     outline-color="#ffffff"
     ></a-troika-text>
+
+
+    <a-gltf-model
+    class="clickable"
+    id="discord"
+    src="#discord" 
+    position="-3 1.8 -6" 
+    rotation="0 90 0"
+    scale="0.002 0.002 0.002" 
+    clickable-link="url: https://discord.gg/eBrMGdY7"
+  ></a-gltf-model>
+  
+  <a-gltf-model
+  class="clickable"
+    id="github"
+    src="#github" 
+    position="-2.6 1.5 -11" 
+    rotation="0 90 0"
+    scale="0.1 0.1 0.1" 
+    clickable-link="url: https://github.com/CoderTalhaa"
+  ></a-gltf-model>
+  
+  <a-gltf-model
+  class="clickable"
+    id="linkedin"
+    src="#linkedin" 
+    position="-3 2 -14" 
+    rotation="0 90 0"
+    scale="0.5 0.5 0.5" 
+    clickable-link="url: https://www.linkedin.com/in/talha-83984xb/"
+  ></a-gltf-model>
+  
+  <a-gltf-model
+  class="clickable"
+    id="twitter"
+    src="#twitter" 
+    position="-3 2 -8" 
+    rotation="0 90 0"
+    scale="0.005 0.005 0.005" 
+    clickable-link="url: https://twitter.com/CoderTalhaa"
+  ></a-gltf-model>
+
+  <a-troika-text value="VIEW MY PROJECTS" material="metalness: 0.8" position="-2.7 3.3 -9.9" rotation="0 90 0" scale="3 3 3" color="#6b0062" font="#rubic" fill-opacity="3" outline-blur="0.1" outline-color="#ffffff" troika-text="value: Follow Me!; color: #461d01"></a-troika-text>
 
 
       <a-video src="#threejs" position="-1.77 2.047 -2.478" scale="5 2 2" 

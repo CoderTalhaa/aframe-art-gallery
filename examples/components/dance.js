@@ -127,3 +127,28 @@ AFRAME.registerComponent('show-dialog', {
     });
   }
 });
+
+
+AFRAME.registerComponent('clickable-link', {
+  schema: {
+    url: { type: 'string' }
+  },
+  init: function () {
+    const el = this.el;
+
+    // Define the openLink function
+    const openLink = (url) => {
+      // Open the link in the same window/tab
+      window.open(url, '_blank');
+
+      // Alternatively, open the link in a new window/tab
+      // window.open(url, '_blank');
+    };
+
+    // Set up the click event
+    el.addEventListener('click', () => {
+      // Call the openLink function with the provided URL
+      openLink(this.data.url);
+    });
+  }
+});
