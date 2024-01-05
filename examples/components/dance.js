@@ -3,13 +3,13 @@ AFRAME.registerComponent('animation-listener', {
     const el = this.el;
 
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'l' || event.key === 'L') {
+      if (event.key === 'c' || event.key === 'C') {
         // Reset the animation-mixer component
         el.removeAttribute('animation-mixer');
 
         // Trigger the 'dance' animation to play once
         el.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-        console.log('Key "L" pressed - Playing "dance" animation once');
+        console.log('Key "C" pressed - Playing "dance" animation once');
       }
     });
   }
@@ -23,8 +23,6 @@ AFRAME.registerComponent('go-up', {
     const player = document.querySelector('#player');
 
     this.el.addEventListener('click', function (e) {
-
-
       camera.setAttribute('animation', {
         property: 'position',
         to: { x: -29, y: 60, z: 14 },
@@ -44,8 +42,6 @@ AFRAME.registerComponent('go-down', {
     const player = document.querySelector('#player');
 
     this.el.addEventListener('click', function (e) {
-
-
       camera.setAttribute('animation', {
         property: 'position',
         to: { x: 0, y: 0, z: 0 },
@@ -60,7 +56,6 @@ AFRAME.registerComponent('go-down', {
 AFRAME.registerComponent('glow', {
   init: function () {
     const el = this.el;
-
 
     this.el.addEventListener('mouseenter', function (e) {
       el.setAttribute('color', 'yellow');
@@ -96,5 +91,39 @@ AFRAME.registerComponent('set-aspect-ratio', {
       const mediaAspectRatio = media.naturalWidth / media.naturalHeight;
       el.setAttribute('width', mediaAspectRatio);
     }
+  }
+});
+
+AFRAME.registerComponent('cursor-listener', {
+  init: function () {
+    let el = this.el;
+    let isOpen = false;
+    el.addEventListener('click', function () {
+      // Show the dialog-plane on hover
+      const content = document.getElementById('content-container');
+
+      if (!isOpen) {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+
+      isOpen = !isOpen;
+    });
+  }
+});
+
+AFRAME.registerComponent('show-dialog', {
+  init: function () {
+    const el = this.el;
+    const dialog = document.getElementById('dialog');
+
+    el.addEventListener('mouseenter', function () {
+      dialog.setAttribute('visible', 'true');
+    });
+
+    el.addEventListener('mouseleave', function () {
+      dialog.setAttribute('visible', 'false');
+    });
   }
 });

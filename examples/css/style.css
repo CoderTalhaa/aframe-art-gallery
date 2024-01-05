@@ -1,8 +1,29 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#my-iframe {
+  overflow: hidden;
+}
+
+#content-container {
+  position: absolute;
+  top: 4%;
+  left: 65%;
+  width: 30vw;
+  height: 60vh;
+  border-radius: 1rem;
+  background: white;
+  z-index: 100;
+  overflow: hidden;
+  display: none;
+}
 
 .actions {
   position: absolute;
@@ -36,11 +57,11 @@
 }
 
 .slide-up {
-top: -100% !important;
-transition: all ease 0.5s !important;
+  top: -100% !important;
+  transition: all ease 0.5s !important;
 }
 
-.container{
+.container {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,19 +75,17 @@ transition: all ease 0.5s !important;
   align-items: center;
   background: #000;
   gap: 30px;
-
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.container h1{
+.container h1 {
   color: white;
   font-family: sans-serif;
   font-size: 60px;
@@ -90,7 +109,7 @@ align-items: center;
   background-color: #212121;
   outline-color: rgb(0, 255, 255);
   box-shadow: -3px -3px 15px rgb(0, 255, 255);
-  transition: .1s;
+  transition: 0.1s;
   transition-property: box-shadow;
 }
 
@@ -107,7 +126,8 @@ align-items: center;
   transition: 0.5s;
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -128,7 +148,7 @@ strong {
   font-family: 'Avalors Personal Use';
   font-size: 12px;
   letter-spacing: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0 0 4px white;
 }
 
@@ -160,18 +180,18 @@ strong {
 }
 
 .btn:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .btn:active {
-  border: double 4px #FE53BB;
+  border: double 4px #fe53bb;
   background-origin: border-box;
   background-clip: content-box, border-box;
   animation: none;
 }
 
 .btn:active .circle {
-  background: #FE53BB;
+  background: #fe53bb;
 }
 
 #stars {
@@ -182,7 +202,7 @@ strong {
 }
 
 #stars::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -10rem;
   left: -100rem;
@@ -197,7 +217,7 @@ strong {
 }
 
 #stars::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -50%;
@@ -305,7 +325,6 @@ strong {
 #checkbox {
   display: none;
 }
-
 
 #checkbox:checked + .switch .mic-off {
   opacity: 0;

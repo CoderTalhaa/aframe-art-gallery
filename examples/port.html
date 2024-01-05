@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f4f4f4;
+        overflow-x: hidden;
+      }
+
+      #about-container {
+        width: 100;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(45deg, #901818, #1703b1);
+      }
+
+      #profile-image {
+        width: 150px; /* Adjust the image size */
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      #about-text {
+        max-width: 600px; /* Adjust the maximum width of the text */
+        line-height: 1.6;
+        color: #ffffff;
+      }
+
+      #project-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .project-image {
+        width: 150px; /* Adjust the image size */
+        height: 200px;
+        object-fit: cover;
+        margin: 20px;
+        border-radius: 8px;
+      }
+
+      /***** scrolll barrrr ***/
+      /* Customize the scrollbar track */
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Customize the scrollbar thumb (the draggable part) */
+      ::-webkit-scrollbar-thumb {
+        background-color: #555;
+        border-radius: 6px;
+      }
+
+      /* Customize the scrollbar track when hovered */
+      ::-webkit-scrollbar-track:hover {
+        background-color: transparent;
+      }
+
+      /* Customize the scrollbar thumb when hovered */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #777;
+      }
+
+      /* Customize the scrollbar track when it's in the "dragging" state */
+      ::-webkit-scrollbar-track:active {
+        background-color: #666;
+      }
+
+      /* Customize the scrollbar thumb when it's in the "dragging" state */
+      ::-webkit-scrollbar-thumb:active {
+        background-color: #444;
+      }
+
+      .close {
+        font-size: 15px;
+        color: #f4f4f4;
+        background: #555;
+        border-radius: 1rem;
+        border: none;
+        margin-right: 230px;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="about-container">
+      <p class="close">Click robot to close</p>
+      <img id="profile-image" src="./assets/icons/talha.jpg" alt="Profile Image" />
+      <h1>"M.TALHA"</h1>
+      <h2>About Me</h2>
+      <p id="about-text">
+        I'm Talha a passionate developer with experience in Threejs, WebGL, and WebXR development. As a Computer Science
+        student, I've been creating various experiences in web technology including AR and VR. Expertise: Threejs
+        A-Frame React GSAP JavaScript Webflow As a passionate Developer, Your satisfaction is my priority, and I am
+        confident that my work will not disappoint. Kind regards, Talha.
+      </p>
+
+      <h2>My Projects</h2>
+      <div id="project-section">
+        <img class="project-image" src="./assets/icons/p2.png" alt="Project 1" />
+        <img class="project-image" src="./assets/icons/p1.png" alt="Project 2" />
+        <img class="project-image" src="./assets/icons/p3.png" alt="Project 3" />
+        <img class="project-image" src="./assets/icons/p4.png" alt="Project 4" />
+      </div>
+    </div>
+  </body>
+</html>

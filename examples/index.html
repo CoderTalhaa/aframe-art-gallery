@@ -7,6 +7,7 @@
 
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/akbartus/A-Frame-Component-Postprocessing/dist/post-processing.min.js"></script>
     <script src="./components/hdr-light.js"></script>
@@ -110,10 +111,14 @@
       </div>
     </div>
 
+    <div id="content-container">
+      <iframe id="my-iframe" src="port.html" width="100%" height="100%" frameborder="0" overflow="hidden"></iframe>
+    </div>
+
     <a-scene
       vr-mode-ui="enabled: true"
       cursor="rayOrigin: mouse; fuse: false"
-      raycaster="objects: .clickable"
+      raycaster="objects: .clickable;"
       hdri
       networked-scene="
       room: basic-audio;
@@ -127,6 +132,7 @@
     colorManagement: true;
     physicallyCorrectLights: true;
     "
+    fog="color: #ffffff; far: 44; density: 0; type: exponential"
     >
       <a-assets>
         <!-- Templates -->
@@ -176,6 +182,14 @@
         <a-asset-item id="panda" src="./assets/models/panda_walk.glb"></a-asset-item>
 
         <a-asset-item id="soilder" src="./assets/models/soilder.glb"></a-asset-item>
+
+        <a-asset-item id="banaCar" src="./assets/models/bananaCar.glb"></a-asset-item>
+
+        <a-asset-item id="ground" src="./assets/models/Yard.glb"></a-asset-item>
+
+        <a-asset-item id="robot" src="./assets/models/robot.glb"></a-asset-item>
+
+        <a-asset-item id="info" src="./assets/models/info.glb"></a-asset-item>
 
         <a-asset-item id="rubic" src="./assets/rubic.ttf"></a-asset-item>
 
@@ -232,7 +246,7 @@
         animation__rotate="property: rotation; from: 0 -170 0; to: 0 -55 0; dur: 5000; easing: linear; loop: true; dir: alternate;"
         ></a-gltf-model>
 
-        <a-gltf-model src="#turretGun" scale="2 2 2" position="-7 8.2 -16.6" rotation="0 -80 0"
+        <a-gltf-model  src="#turretGun" scale="2 2 2" position="-7 8.2 -16.6" rotation="0 -80 0"
         animation__rotate="property: rotation; from: 0 -140 0; to: 0 -65 0; dur: 5000; easing: linear; loop: true; dir: alternate;"
         ></a-gltf-model>
 
@@ -281,36 +295,104 @@
       font="#rubic"
       ></a-troika-text>
 
+
+    
+    <a-troika-text 
+    value="VIEW MY PROJECTS"
+    material="shader: standard; metalness: 0.8;"
+    position="3.064 4.769 -1.840"
+    rotation="0 0 0"
+    scale="4 4 4"
+    color="#6b0062"
+    font="#rubic"
+    fill-opacity="3" 
+    outline-blur="0.1" 
+    outline-color="#ffffff"
+    ></a-troika-text>
+
+
       <a-video src="#threejs" position="-1.77 2.047 -2.478" scale="5 2 2" 
       ></a-video>
+
       <a-video src="#aframe" position="8 2.047 -2.478" scale="5 2 2" 
       ></a-video>
 
-      <a-troika-text 
-      value="VIEW MY PROJECTS"
-      material="shader: standard; metalness: 0.8;"
-      position="3.064 4.769 -1.840"
-      rotation="0 0 0"
-      scale="4 4 4"
-      color="#6b0062"
-      font="#rubic"
-      fill-opacity="3" 
-      outline-blur="0.5" 
-      outline-color="#ffffff"
-    ></a-troika-text>
+      <a-entity
+      class="clickable" cursor-listener
+      id="robot" 
+      gltf-model="#robot" 
+      position="3 0 -14"
+      rotation="0 0 0" 
+      scale="1.5 1.5 1.5"
+      animation-mixer
+      ></a-entity>
 
-      <a-light type="point" color="#ff6600" position="-18.45 8.59 8.405" intensity="30"></a-light>
-      <a-entity light="type: ambient; color: #ff6600; intensity:3" ></a-entity>
+      <a-troika-text value="VIEW MY PROJECTS" material="metalness: 0.8" position="3.064 3.44991 -12.29793" rotation="" scale="4 4 4" color="#6b0062" font="#rubic" fill-opacity="3" outline-blur="0.1" outline-color="#ffffff" troika-text="value: Click me; color: #627eb7"></a-troika-text>
+
+
+    <!-- Physics area  -->
+
+    <a-entity id="dialog" position="3.3 4.4 19.8" rotation="0 150 0" visible="false" geometry="primitive: plane; width: 4.2; height: 4.2" material="color: white"><a-entity id="close-icon" position="2 2 0.01" geometry="primitive: circle; radius: 0.3" material="color: white"></a-entity><a-entity id="title" text="value: Car controls: ; color: black; font: mozillavr; wrapCount: 24; width: 3.6; baseline: top; anchor: left" position="-1.8 1.8 0.01"></a-entity><a-entity id="title" text="value: Drive the car with keyboard keys [ I , j , k , l]. Fun Fact:        HIt the blocks  ; color: black; font: mozillavr; wrapCount: 25; width: 3.6; baseline: top; anchor: left" position="-1.8 1.4 0.01"></a-entity></a-entity>
+
+    <a-entity
+    class="clickable"
+    id="info" 
+    gltf-model="#info" 
+    position="6 4 21"
+    rotation="0 80 0" 
+    scale="1.5 1.5 1.5"
+    show-dialog
+    ></a-entity>
+
+      <a-entity
+      id="car" 
+      gltf-model="#banaCar" 
+      position="6 1 19"
+      rotation="0 -90 0" 
+      scale="0.005 0.005 0.005"
+      static-body="shape:sphere; sphereRadius: 2;"
+      ></a-entity>
+
 
     
-      <a-entity environment="preset:japan"></a-entity>
+    <a-box dynamic-body position="-8 1 23" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 1 22" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 1 21" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 1 20" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 2 23" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 2 22" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 2 21" rotation="0 0 0" color="#4CC3D9"></a-box>
+    <a-box dynamic-body position="-8 2 20" rotation="0 0 0" color="#4CC3D9"></a-box>
+
+    <a-plane
+    static-body
+    color="black"
+    position="0 -0.01 10.5"
+    rotation="90 0 0"
+    scale="70 70 0"
+    
+    ></a-plane>
+
+    <!-- ENVIRONMENT -->
+    <a-light type="point" color="#ff6600" position="-18.45 8.59 8.405" intensity="30"></a-light>
+    <a-entity light="color: #ff6600; intensity: 3;" position="32.4 20.3 59.7" rotation="-18.2 29 0"
+    scale="2.6 2 1"
+    ></a-entity>
+      
+      <a-entity
+      id="base"
+      gltf-model="#ground"
+      position="-17.8 10.37 52"
+      scale="300 300 300" 
+      ></a-entity>
+      <a-entity environment="preset:starry"  position="0 -5 0"></a-entity>
       <!-- <a-sky
         rotation="0 180 0"
         src="https://cdn.glitch.global/c2ccdc8b-d87a-49af-95e6-e3cd029bbd31/2048-polyhaven-wasteland_clouds_puresky.jpeg?v=1699386634988"
       ></a-sky> -->
-      <a-entity position="0 -1.6 0">
-        <!-- <a-ocean-plane height="100" width="100" position="0 -1 0"></a-ocean-plane> -->
-      </a-entity>
+      <!-- <a-entity position="0 -1.6 0">
+        <a-ocean-plane height="100" width="100" position="0 -1 0"></a-ocean-plane>
+      </a-entity> -->
     </a-scene>
 
     <a-image src="./assets/icons/mic.svg"></a-image>
@@ -351,6 +433,7 @@
 
       <!-- <button id="mic-btn" type="button" class="button">Mute Mic</button> -->
     </div>
+    <script src="./components/steer.js"></script>
 
     <script>
       const enterButton = document.querySelector('.btn');
