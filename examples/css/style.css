@@ -337,3 +337,95 @@ strong {
 #checkbox:active + .switch {
   scale: 1.2;
 }
+
+
+.chat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius:16px;
+  padding:12px;
+  width: 300px;
+  z-index: 10;
+  opacity: 0.2; /* Set initial opacity to low */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.chat:hover, .chat:focus-within {
+  opacity: 1; /* Return to normal when user hovers or focuses within the chat box */
+}
+
+.input {
+ color: #8707ff;
+ border: 2px solid #8707ff;
+ border-radius: 10px;
+ padding: 10px 25px;
+ background: transparent;
+ max-width: 190px;
+ overflow-y: hidden; /* Turn off horizontal overflow */
+}
+
+.input:active {
+ box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+#send-btn {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  background-color: #8707ff;
+  color: #fff;
+  border-radius:1rem;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #8707ff41;
+}
+
+#send-btn:active {
+ transform: translate(0em, 0.2em);
+}
+
+.messages {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden; /* Turn off horizontal overflow */
+  padding: 10px;
+  color: #fff;
+  font-size:1rem;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+}
+
+/***** scrolll barrrr ***/
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Customize the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px;
+}
+
+/* Customize the scrollbar track when hovered */
+::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+/* Customize the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* Customize the scrollbar track when it's in the "dragging" state */
+::-webkit-scrollbar-track:active {
+  background-color: #666;
+}
+
+/* Customize the scrollbar thumb when it's in the "dragging" state */
+::-webkit-scrollbar-thumb:active {
+  background-color: #444;
+}
